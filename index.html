@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modeling Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#3B211C;
+    --bg-panel:#3D3028;
+    --ink:#F5EEE5;
+    --ink-soft:#CBBEAF;
+    --accent:#7A3038;
+    --frame:#5D4B3D;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    box-sizing:border-box;
+}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:64px;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,.serif{font-family:'Fraunces', serif; font-weight:400;}
+
+  nav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 6vw;
+    padding-top:calc(18px + env(safe-area-inset-top,0px));
+    background:rgba(226,216,204,0.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid #B9A99A;
+}
+  .nav-name{font-family:'Fraunces', serif; font-size:1.2rem; letter-spacing:0.02em; color:#4A3F38;
+}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    color:#4A3F38;
+    text-decoration:none;
+    font-size:0.92rem;
+    transition:color 0.2s ease;
+}
+  .nav-links a:hover{
+    color:#D6A6A0;
+}
+  .nav-links{display:none;}
+  @media(min-width:720px){ .nav-links{display:flex;} }
+
+  .hero{
+    min-height:82vh; display:flex; flex-direction:column; justify-content:center;
+    padding:8vh 6vw; max-width:1100px;
+  }
+  .hero .kicker{color:var(--ink-soft); font-size:0.95rem; margin-bottom:18px;}
+  .hero h1{font-size:clamp(2.6rem,7vw,5.2rem); line-height:1.02; margin:0 0 24px 0; max-width:14ch;}
+  .hero p{max-width:46ch; color:var(--ink-soft); font-size:1.05rem; line-height:1.6;}
+  .hero-tags{display:flex; gap:10px; flex-wrap:wrap; margin-top:34px;}
+  .hero-tags span{
+    border:1px solid var(--frame); padding:7px 14px; border-radius:999px;
+    font-size:0.85rem; color:var(--ink-soft);
+  }
+
+  .category{ padding:9vh 6vw 6vh; border-top:1px solid var(--frame); }
+  .cat-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    flex-wrap:wrap; gap:12px; margin-bottom:46px;
+  }
+  .cat-head h2{font-size:clamp(2rem,4.4vw,3rem); margin:0;}
+  .cat-count{color:var(--ink-soft); font-size:0.9rem;}
+
+  .grid{
+    display:grid; gap:22px;
+    grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+  }
+  .frame{
+    position:relative; aspect-ratio:4/5; border-radius:2px; overflow:hidden;
+    background:
+      linear-gradient(135deg, var(--frame) 0%, var(--bg-panel) 100%);
+    display:flex; align-items:flex-end;
+  }
+  .frame::before{
+    content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(115deg, rgba(43,38,33,0.05) 0 2px, transparent 2px 14px);
+  }
+  .frame img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  }
+  .frame .cap{
+    position:relative; z-index:1; padding:16px;
+    font-size:0.82rem; color:var(--ink); background:linear-gradient(to top, rgba(220,213,201,0.75), transparent);
+    width:100%;
+  }
+  .frame.tall{grid-row:span 2;}
+
+  .about{
+    padding:9vh 6vw; border-top:1px solid var(--frame);
+    display:grid; gap:40px; grid-template-columns:1fr; max-width:1100px;
+  }
+  @media(min-width:800px){ .about{grid-template-columns:1.1fr 0.9fr;} }
+  .about h2{font-size:clamp(1.8rem,3.4vw,2.4rem); margin:0 0 18px 0;}
+  .about p{color:var(--ink-soft); line-height:1.7; max-width:50ch;}
+  .stats{display:flex; flex-direction:column; gap:18px; align-self:start;}
+  .stat{display:flex; justify-content:space-between; border-bottom:1px solid var(--frame); padding-bottom:12px;}
+  .stat .k{color:var(--ink-soft); font-size:0.9rem;}
+  .stat .v{font-family:'Fraunces', serif; font-size:1.05rem;}
+
+  footer{
+    padding:6vh 6vw calc(6vh + env(safe-area-inset-bottom,0px));
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    border-top:1px solid var(--frame); color:var(--ink-soft); font-size:0.88rem;
+  }
+  footer a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--accent);}
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  .top-photo {
+  width: 260px;
+  margin: 40px auto 60px;
+}
+
+.top-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero {
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  gap: 70px;
+  padding: 8vh 6vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  max-width: 560px;
+}
+
+.hero-photo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-photo img {
+  width: 420px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-photo {
+    justify-content: center;
+  }
+
+  .hero-photo img {
+    width: 330px;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Rivan Sagga</span>
+  <ul class="nav-links">
+    <li><a href="#sports">sports</a></li>
+    <li><a href="#fashion">Fashion</a></li>
+    <li><a href="#restaurant">Restaurant</a></li>
+    <li><a href="#runways">Runways</a></li>
+    <li><a href="#perfumes">perfumes</a></li>
+    <li><a href="#skincare & beauty">skincare & beauty</a></li>
+    <li><a href="#hair beauty">hair beauty</a></li>
+    <li><a href="#footwear">Footwear</a></li>
+    <li><a href="#sunwear">sunwear</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+
+
+
+
+<section class="hero">
+
+  <div class="hero-content">
+    <div class="kicker">Modeling Portfolio — Riyadh</div>
+
+    <h1>Rivan Sagga</h1>
+
+    <p>
+      Riyadh-based model with a passion for fashion, beauty, and editorial work.
+      I bring a versatile presence and a natural ability to adapt to different
+      creative concepts, from runway and high fashion to commercial campaigns.
+    </p>
+
+    <div class="hero-tags">
+      <span>Height 5'9" - 177cm</span>
+      <span>Based in Riyadh</span>
+      <span>Available for travel</span>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <img src="white-background/images/IMG_3929 2.jpg" alt="Rivan Sagga">
+  </div>
+
+</section>
+
+
+
+
+
+<section class="category" id="white-background">
+
+  <div class="cat-head">
+    <h2>White Background Pictures</h2>
+    <span class="cat-count">
+      Studio and editorial portraits.
+    </span>
+  </div>
+
+  <div class="grid">
+
+    <div class="frame">
+      <img src="white-background/images/IMG_3930 2.jpg" alt="Rivan">
+    </div>
+
+    <div class="frame">
+      <img src="white-background/images/IMG_3931 2.jpg" alt="Rivan">
+    </div>
+
+    <div class="frame">
+      <img src="white-background/images/IMG_3932 2.jpg" alt="Rivan">
+    </div>
+
+    <div class="frame">
+      <img src="white-background/images/IMG_3933 2.jpg" alt="Rivan">
+    </div>
+
+    <div class="frame">
+      <img src="white-background/images/IMG_3934 2.jpg" alt="Rivan">
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="category" id="sports">
+
+  <div class="cat-head">
+    <h2>Sports</h2>
+    <span class="cat-count">
+      Sports, fitness, and active lifestyle campaigns.
+    </span>
+  </div>
+
+  <div class="grid">
+
+    <!-- Sports 1 – PadelX -->
+    <a href="sports-1/index.html" class="frame tall">
+      <img
+        src="sports-1/images/IMG_3792.jpg"
+        alt="PadelX – Riyadh"
+      >
+      <div class="cap">PadelX – Riyadh</div>
+    </a>
+
+
+    <!-- Sports 2 – Adidas x JD -->
+    <a href="sports-2/index.html" class="frame tall">
+      <img
+        src="sports-2/images/IMG_3799.jpg"
+        alt="Adidas x JD – Riyadh"
+      >
+      <div class="cap">Adidas x JD – Riyadh</div>
+    </a>
+
+    <!-- Sports 3 – New Balance x Namshi -->
+  <a href="sports-3/index.html" class="frame tall">
+  <img
+    src="sports-3/images/IMG_3807.jpg"
+    alt="New Balance x Namshi – Riyadh"  >
+  <div class="cap">New Balance x Namshi – Riyadh</div>
+</a>
+
+<!-- Sports 4 – Puma -->
+<a href="sports-4/index.html" class="frame tall">
+  <img
+    src="sports-4/images/IMG_3847.jpg"
+    alt="Puma – Riyadh"
+  >
+  <div class="cap">Puma – Riyadh</div>
+</a>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+<section class="category" id="fashion">
+
+  <div class="cat-head">
+    <h2>Fashion</h2>
+    <span class="cat-count">
+      Fashion campaigns, brand collaborations, and editorial work.
+    </span>
+  </div>
+  <div class="grid">
+    <!-- Fashion 1 – Not Boring x Eid -->
+    <a href="fashion-1/index.html" class="frame tall">
+      <img
+        src="fashion-1/images/IMG_3818.jpg"
+        alt="Not Boring x Eid – Riyadh">
+      <div class="cap">Not Boring x Eid – Riyadh</div>
+    </a>
+<!-- Fashion 2 – Not Boring x Il Mushrayat -->
+<a href="fashion-2/index.html" class="frame tall">
+  <img
+    src="fashion-2/images/IMG_3822.jpg"
+    alt="Not Boring x Il Mushrayat – Riyadh"
+  >
+  <div class="cap">Not Boring x Il Mushrayat – Riyadh</div>
+</a>
+
+<!-- Fashion 3 – Billboard Arabia -->
+<a href="fashion-3/index.html" class="frame tall">
+  <img
+    src="fashion-3/images/billboard-7.JPG"
+    alt="Billboard Arabia – Riyadh">
+  <div class="cap">Billboard Arabia – Riyadh</div>
+</a>
+
+<!-- Fashion 4 – Blueage -->
+<a href="fashion-4/index.html" class="frame tall">
+  <img
+    src="fashion-4/IMG_3844.jpg"
+    alt="Blueage – Riyadh">
+  <div class="cap">Blueage – Riyadh</div>
+</a>
+
+<a href="fashion-5/index.html" class="frame tall">
+  <img src="fashion-5/images/IMG_3854.jpg" alt="Personage x Nobadvibez - Riyadh">
+  <div class="cap">Personage x Nobadvibez - Riyadh</div>
+</a>
+
+<a href="fashion-6/index.html" class="frame tall">
+  <img src="fashion-6/images/IMG_1659.jpeg" alt="Angel Dust – Riyadh">
+  <div class="cap">Angel Dust – Riyadh</div>
+</a>
+
+<!-- Fashion 7 – Whoop Watch -->
+<a href="fashion-7/index.html" class="frame tall">
+  <img
+    src="fashion-7/images/IMG_9293.jpg"
+    alt="Whoop Watch – Riyadh"
+  >
+  <div class="cap">Whoop Watch – Riyadh</div>
+</a>
+
+<!-- Fashion 8 – Studio Opening -->
+<a href="fashion-8/index.html" class="frame tall">
+  <img
+    src="fashion-8/images/IMG_3967 2.png"
+    alt="Studio Opening – Riyadh"
+  >
+  <div class="cap">Studio Opening – Riyadh</div>
+</a>
+
+<!-- Fashion 9 – House of Hype Opening -->
+<a href="fashion-9/index.html" class="frame tall">
+  <img
+    src="fashion-9/images/IMG_3987.jpg"
+    alt="House of Hype Opening – Riyadh"
+  >
+  <div class="cap">House of Hype Opening – Riyadh</div>
+</a>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="category" id="restaurant">
+  <div class="cat-head">
+    <h2>Restaurant &amp; Hospitality</h2>
+    <span class="cat-count">Hospitality, dining, and lifestyle campaigns.</span>
+  </div>
+
+  <div class="grid">
+
+ <a href="restaurant-1/index.html" class="frame tall">
+    <img src="restaurant-1/images/IMG_3759.jpg" alt="Red Shrimp — Riyadh">
+    <div class="cap">Red Shrimp — Riyadh</div>
+</a>
+
+<a href="restaurant-2/index.html" class="frame">
+    <img src="restaurant-2/images/IMG_3764.jpg" alt="Nevermind – Riyadh">
+    <div class="cap">Nevermind – Riyadh</div>
+</a>
+
+<a href="restaurant-3/index.html" class="frame">
+    <img src="restaurant-3/images/IMG_3769.jpg" alt="Restaurant 3 – Riyadh">
+    <div class="cap">Restaurant 3 – Riyadh</div>
+</a>
+
+<a href="restaurant-4/index.html" class="frame">
+    <img src="restaurant-4/images/IMG_3742.jpg" alt="Birdlot — Riyadh">
+    <div class="cap">Birdlot — Riyadh</div>
+</a>
+
+<!-- Restaurant 5 – Vian's Chocolate -->
+<a href="restaurant-5/index.html" class="frame tall">
+  <img
+    src="restaurant-5/images/IMG_3966 2.png"
+    alt="Vian's Chocolate – Riyadh"
+  >
+  <div class="cap">Vian's Chocolate – Riyadh</div>
+</a>
+
+</div>
+</section>
+
+
+
+
+
+<section class="category" id="runways">
+  <div class="cat-head">
+    <h2>runways</h2>
+    <span class="cat-count">Replace with your shoot images</span>
+  </div>
+  <div class="grid">
+    <!-- Runway 1 – Modest Fashion Week -->
+<a href="runway-1/index.html" class="frame tall">
+  <img
+    src="runway-1/images/IMG_3781.jpg"
+    alt="Modest Fashion Week – Riyadh"
+  >
+  <div class="cap">Modest Fashion Week – Riyadh</div>
+</a>
+
+    <!-- Runway 2 – Makram Al-Marzouki Fashion Show -->
+<a href="runway-2/index.html" class="frame tall">
+  <img
+    src="runway-2/images/IMG_3908.jpg"
+    alt="Makram Al-Marzouki Fashion Show – Riyadh"
+  >
+  <div class="cap">Makram Al-Marzouki Fashion Show – Riyadh</div>
+</a>
+
+    <!-- Runway 3 – L'Oréal x Blèza & Daneh -->
+<a href="runway-3/index.html" class="frame tall">
+  <img
+    src="runway-3/images/IMG_3924.jpg"
+    alt="L'Oréal x Blèza & Daneh – Riyadh"
+  >
+  <div class="cap">L'Oréal x Blèza & Daneh – Riyadh</div>
+</a>
+
+    <a href="runway-4/index.html" class="frame tall">
+  <img src="runway-4/images/IMG_7643.jpg" alt="Naseej – Riyadh">
+  <div class="cap">Naseej – Riyadh</div>
+</a>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="category" id="perfumes">
+
+  <div class="cat-head">
+    <h2>Perfumes</h2>
+    <span class="cat-count">
+      Fragrance and perfume campaigns.
+    </span>
+  </div>
+
+  <div class="grid">
+
+    <!-- Perfumes 1 – Osma -->
+<a href="./perfumes-1/index.html" class="frame tall">      <img
+        src="perfumes-1/images/perfume-4.jpg"
+        alt="Osma – Riyadh"
+      >
+      <div class="cap">Osma – Riyadh</div>
+    </a>
+
+   <!-- Perfumes 2 – Arabian Oud x Yaqoot -->
+<a href="perfumes-2/index.html" class="frame tall">
+  <img
+    src="perfumes-2/images/IMG_3965 2.png"
+    alt="Arabian Oud x Yaqoot – Riyadh"
+  >
+  <div class="cap">Arabian Oud x Yaqoot – Riyadh</div>
+</a>
+
+  </div>
+</section>
+
+
+
+
+
+<section class="category" id="skincare & beauty">
+  <div class="cat-head">
+    <h2>skincare &amp; beauty</h2>
+    <span class="cat-count">
+      Beauty, skincare, and makeup campaigns.
+    </span>
+  </div>
+  <div class="grid">
+    <!-- Brand 1 -->
+    <a href="skincare-beauty/brand-1/index.html" class="frame tall">
+      <img
+        src="skincare-beauty/brand-1/images/IMG_1684.jpg"
+        alt="Brand 1 - Skincare & Beauty"
+      >
+      <div class="cap">WOW skin science – Riyadh</div>
+    </a>
+</section>
+
+
+
+
+
+
+
+<section class="category" id="hair beauty">
+  <div class="cat-head">
+    <h2>Hair & Beauty</h2>
+    <span class="cat-count">
+      Hair, beauty, and personal care campaigns.
+    </span>
+  </div>
+  <div class="grid">
+
+    <!-- Hair & Beauty 1 – Clara -->
+    <a href="hair-beauty1/index.html" class="frame tall">
+      <img
+        src="hair-beauty1/images/clara-image-4.png"
+        alt="Clara – Riyadh"
+      >
+      <div class="cap">Clara – Riyadh</div>
+    </a>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="category" id="footwear">
+
+  <div class="cat-head">
+    <h2>Footwear</h2>
+    <span class="cat-count">
+      Footwear campaigns and brand collaborations.
+    </span>
+  </div>
+
+  <div class="grid">
+
+    <!-- Footwear 1 – Footlab -->
+    <a href="footwear-1/index.html" class="frame">
+      <img
+        src="footwear-1/images/IMG_3834.jpg"
+        alt="Footlab – Riyadh">
+      <div class="cap">Footlab – Riyadh</div>
+    </a>
+
+    <!-- Footwear 2 – Footlab Shoot -->
+<a href="footwear-2/index.html" class="frame tall">
+  <img
+    src="footwear-2/images/IMG_3960.jpg"
+    alt="Footlab Shoot – Riyadh"
+  >
+  <div class="cap">Footlab Shoot – Riyadh</div>
+</a>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="category" id="sunwear">
+    <div class="cat-head">
+        <h2>Sunwear</h2>
+        <span class="cat-count">Sunwear campaign</span>
+    </div>
+
+    <div class="grid">
+
+        <a href="sunwear/index.html" class="frame tall">
+            <img src="sunwear/images/IMG_1650.jpg" alt="Sunwear - Riyadh">
+            <div class="cap">Sunwear - Riyadh</div>
+        </a>
+
+        <!-- Sunwear 2 – Doctorm Eyewear -->
+        <a href="sunwear-2/index.html" class="frame tall">
+          <img
+            src="sunwear-2/images/IMG_3883 2.jpg"
+            alt="Doctorm Eyewear – Riyadh"
+          >
+          <div class="cap">Doctorm Eyewear – Riyadh</div>
+        </a>
+
+    </div>
+</section>
+
+
+
+<section class="about" id="about">
+  <div>
+    <h2>About</h2>
+    <p>Since beginning my modeling journey in 2021, I have worked across fashion, beauty, runway, editorial, and commercial projects. Based in Riyadh, I’ve developed a versatile approach through working with different creative teams, brands, and photographers. I’m drawn to projects that allow me to explore new aesthetics, express individuality, and contribute to a strong creative vision. Available for local and international opportunities.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="k">Height</span><span class="v">177cm</span></div>
+    <div class="stat"><span class="k">Measurements</span><span class="v">—</span></div>
+    <div class="stat"><span class="k">Shoe size</span><span class="v">40-41</span></div>
+    <div class="stat"><span class="k">Hair / eyes</span><span class="v">dark brown </span></div>
+    <div class="stat"><span class="k">Languages</span><span class="v">Arabic/ English</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="year"></span> Rivan Sagga</span>
+  <span><a href="mailto:you@email.com">rivan.saggaa@gmail.com</a> · Instagram @rivansagga · TikTok @rivan.sagga</span>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

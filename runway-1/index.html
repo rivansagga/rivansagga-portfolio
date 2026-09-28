@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Modest Fashion Week</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #2f2f2f;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 45px 60px 70px;
+    }
+
+    .back {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 52px;
+      margin: 0 0 18px;
+    }
+
+    .meta {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+    }
+
+    .cover {
+      width: 100%;
+      margin-bottom: 18px;
+    }
+
+    .cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 30px 25px 50px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <a href="../index.html#runways" class="back">← Back to Runways</a>
+
+    <h1>Modest Fashion Week</h1>
+
+    <div class="meta">
+      Riyadh · 2026<br>
+      Runway Campaign
+    </div>
+
+    <div class="cover">
+      <img src="images/IMG_3781.jpg" alt="Modest Fashion Week cover">
+    </div>
+
+    <div class="gallery">
+
+      <img src="images/IMG_3777.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3778.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3779.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3780.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3900.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3901.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3902.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3904.jpg" alt="Modest Fashion Week image">
+      <img src="images/IMG_3903 3.jpeg" alt="Modest Fashion Week image">
+
+      <video controls>
+        <source src="images/modest-video-1.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="images/modest-video-2.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="images/modest-video-3.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="images/modest-video-4.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

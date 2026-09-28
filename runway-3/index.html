@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>L'Oréal x Blèza & Daneh</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #2f2f2f;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 45px 60px 70px;
+    }
+
+    .back {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 52px;
+      margin: 0 0 18px;
+    }
+
+    .meta {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+    }
+
+    .cover {
+      width: 100%;
+      margin-bottom: 18px;
+    }
+
+    .cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+      align-items: start;
+    }
+
+    .videos video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 30px 25px 50px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .gallery,
+      .videos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <a href="../index.html#runways" class="back">
+      ← Back to Runways
+    </a>
+
+    <h1>L'Oréal x Blèza & Daneh</h1>
+
+    <div class="meta">
+      Riyadh · 2026<br>
+      Runway Campaign
+    </div>
+
+    <div class="cover">
+      <img
+        src="images/IMG_3924.jpg"
+        alt="L'Oréal x Blèza & Daneh cover"
+      >
+    </div>
+
+    <div class="gallery">
+
+      <img src="images/IMG_3922.jpg" alt="L'Oréal x Blèza & Daneh">
+      <img src="images/IMG_3923.jpg" alt="L'Oréal x Blèza & Daneh">
+      <img src="images/IMG_3925.jpg" alt="L'Oréal x Blèza & Daneh">
+      <img src="images/IMG_3926.jpg" alt="L'Oréal x Blèza & Daneh">
+      <img src="images/IMG_3927.jpg" alt="L'Oréal x Blèza & Daneh">
+      <img src="images/IMG_3928.jpg" alt="L'Oréal x Blèza & Daneh">
+
+    </div>
+
+    <div class="videos">
+
+      <video controls>
+        <source src="images/loreal-video-1.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="images/loreal-video-2.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
