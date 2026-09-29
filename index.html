@@ -55,8 +55,51 @@
   .nav-links a:hover{
     color:#D6A6A0;
 }
-  .nav-links{display:none;}
-  @media(min-width:720px){ .nav-links{display:flex;} }
+.nav-links{
+  display:flex;
+  gap:28px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+@media (max-width: 719px){
+
+  nav{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    padding:14px 20px;
+    overflow:hidden;
+  }
+
+  .nav-name{
+    font-size:1.15rem;
+    flex:none;
+  }
+
+  .nav-links{
+    display:flex;
+    width:100%;
+    gap:22px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-bottom:4px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+
+  .nav-links::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-links a{
+    flex:0 0 auto;
+    white-space:nowrap;
+    font-size:0.82rem;
+  }
+}
 
   .hero{
     min-height:82vh; display:flex; flex-direction:column; justify-content:center;
