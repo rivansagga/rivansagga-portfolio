@@ -188,6 +188,129 @@
     width: 330px;
   }
 }
+
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 100%;
+    padding: 32px 24px 50px;
+    box-sizing: border-box;
+  }
+
+  /* Main heading */
+  .page h1 {
+    font-size: 42px;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+
+  /* Intro / description */
+  .page p {
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  /* Small information labels */
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Main images */
+  .cover,
+  .page img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Gallery becomes one column */
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Navigation */
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
+
+
+/* Smaller phones */
+@media (max-width: 480px) {
+
+  .page {
+    padding: 28px 20px 45px;
+  }
+
+  .page h1 {
+    font-size: 36px;
+  }
+
+  .page p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .meta {
+    gap: 8px;
+  }
+
+  .meta span {
+    font-size: 14px;
+    padding: 9px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .frame {
+    width: 100%;
+  }
+
+  .frame .cap {
+    padding: 12px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .frame .cap {
+    padding: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+}
 </style>
 </head>
 <body>
