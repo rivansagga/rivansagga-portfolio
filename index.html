@@ -232,6 +232,29 @@
   }
 }
 
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.65;
+}
+
+#Fashion .frame.tall{
+  grid-row: auto;
+
+}
+
+
 /* =========================
    MOBILE RESPONSIVE DESIGN
    ========================= */
@@ -378,7 +401,6 @@
     width: 100%;
     aspect-ratio: 4 / 5;
   }
-
 }
 </style>
 </head>
@@ -387,18 +409,16 @@
 <nav>
   <span class="nav-name">Rivan Sagga</span>
   <ul class="nav-links">
-    <li><a href="#Sports">sports</a></li>
+    <li><a href="#Sports">Sports</a></li>
     <li><a href="#Fashion">Fashion</a></li>
     <li><a href="#Restaurant">Restaurant</a></li>
     <li><a href="#Runways">Runways</a></li>
-    <li><a href="#Perfumes">perfumes</a></li>
-    <li><a href="#Skincare & Beauty">skincare & beauty</a></li>
-    <li><a href="#Hair Beauty">hair beauty</a></li>
-    <li><a href="#Footwear">Footwear</a></li>
-    <li><a href="#Sunwear">sunwear</a></li>
+    <li><a href="#Beauty">hair beauty</a></li>
     <li><a href="#About">About</a></li>
   </ul>
 </nav>
+
+
 
 
 
@@ -423,6 +443,8 @@
       <span>Available for travel</span>
     </div>
   </div>
+
+
 
   <div class="hero-photo">
     <img src="white-background/images/IMG_3929 2.jpg" alt="Rivan Sagga">
@@ -628,6 +650,38 @@
   <div class="cap">Dress Shoot</div>
 </a>
 
+
+
+   <!-- Footwear 1 – Footlab -->
+    <a href="footwear-1/index.html" class="frame">
+      <img
+        src="footwear-1/images/IMG_3834.jpg"
+        alt="Footlab – Riyadh">
+      <div class="cap">Footlab – Riyadh</div>
+    </a>
+
+    <!-- Footwear 2 – Footlab Shoot -->
+    <a href="footwear-2/index.html" class="frame tall">
+      <img
+        src="footwear-2/images/IMG_3960.jpg"
+        alt="Footlab Shoot – Riyadh"
+      >
+      <div class="cap">Footlab Shoot – Riyadh</div>
+    </a>
+
+        <a href="sunwear/index.html" class="frame tall">
+            <img src="sunwear/images/IMG_1650.jpg" alt="Hazel Optics - Riyadh">
+            <div class="cap">Hazel Optics - Riyadh</div>
+        </a>
+
+        <!-- Sunwear 2 – Doctorm Eyewear -->
+        <a href="sunwear-2/index.html" class="frame tall">
+          <img
+            src="sunwear-2/images/IMG_3883 2.jpg"
+            alt="Doctorm Eyewear – Riyadh"
+          >
+          <div class="cap">Doctorm Eyewear – Riyadh</div>
+        </a>
   </div>
 </section>
 
@@ -724,48 +778,9 @@
 
 
 
-
-
-
-<section class="category" id="Perfumes">
-
+<section class="category" id="Beauty">
   <div class="cat-head">
-    <h2>Perfumes</h2>
-    <span class="cat-count">
-      Fragrance and perfume campaigns.
-    </span>
-  </div>
-
-  <div class="grid">
-
-    <!-- Perfumes 1 – Osma -->
-<a href="./perfumes-1/index.html" class="frame tall">      <img
-        src="perfumes-1/images/perfume-4.jpg"
-        alt="Osma – Riyadh"
-      >
-      <div class="cap">Osma – Riyadh</div>
-    </a>
-
-   <!-- Perfumes 2 – Arabian Oud x Yaqoot -->
-<a href="perfumes-2/index.html" class="frame tall">
-  <img
-    src="perfumes-2/images/IMG_3965 2.png"
-    alt="Arabian Oud x Yaqoot – Dubai"
-  >
-  <div class="cap">Arabian Oud x Yaqoot – Dubai</div>
-</a>
-
-  </div>
-</section>
-
-
-
-
-
-
-<section class="category" id="Skincare & Beauty">
-  <div class="cat-head">
-    <h2>skincare &amp; beauty</h2>
+    <h2>Beauty</h2>
     <span class="cat-count">
       Beauty, skincare, and makeup campaigns.
     </span>
@@ -784,22 +799,24 @@
   <img src="skincare-2/images/IMG_4121.jpg" alt="L'Oréal x Valentino Beauty">
   <div class="cap">L'Oréal x Valentino Beauty master class</div>
 </a>
-</section>
 
+    <!-- Perfumes 1 – Osma -->
+<a href="./perfumes-1/index.html" class="frame tall">      <img
+        src="perfumes-1/images/perfume-4.jpg"
+        alt="Osma – Riyadh"
+      >
+      <div class="cap">Osma – Riyadh</div>
+    </a>
 
+   <!-- Perfumes 2 – Arabian Oud x Yaqoot -->
+<a href="perfumes-2/index.html" class="frame tall">
+  <img
+    src="perfumes-2/images/IMG_3965 2.png"
+    alt="Arabian Oud x Yaqoot – Dubai"
+  >
+  <div class="cap">Arabian Oud x Yaqoot – Dubai</div>
+</a>
 
-
-
-
-
-<section class="category" id="Hair Beauty">
-  <div class="cat-head">
-    <h2>Hair & Beauty</h2>
-    <span class="cat-count">
-      Hair, beauty, and personal care campaigns.
-    </span>
-  </div>
-  <div class="grid">
 
     <!-- Hair & Beauty 1 – Clara -->
     <a href="hair-beauty1/index.html" class="frame tall">
@@ -809,81 +826,12 @@
       >
       <div class="cap">Clara – Riyadh</div>
     </a>
-
-  </div>
 </section>
 
 
 
 
 
-
-
-
-<section class="category" id="Footwear">
-
-  <div class="cat-head">
-    <h2>Footwear</h2>
-    <span class="cat-count">
-      Footwear campaigns and brand collaborations.
-    </span>
-  </div>
-
-  <div class="grid">
-
-    <!-- Footwear 1 – Footlab -->
-    <a href="footwear-1/index.html" class="frame">
-      <img
-        src="footwear-1/images/IMG_3834.jpg"
-        alt="Footlab – Riyadh">
-      <div class="cap">Footlab – Riyadh</div>
-    </a>
-
-    <!-- Footwear 2 – Footlab Shoot -->
-<a href="footwear-2/index.html" class="frame tall">
-  <img
-    src="footwear-2/images/IMG_3960.jpg"
-    alt="Footlab Shoot – Riyadh"
-  >
-  <div class="cap">Footlab Shoot – Riyadh</div>
-</a>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-<section class="category" id="Sunwear">
-    <div class="cat-head">
-        <h2>Sunwear</h2>
-        <span class="cat-count">Sunwear campaign</span>
-    </div>
-
-    <div class="grid">
-
-        <a href="sunwear/index.html" class="frame tall">
-            <img src="sunwear/images/IMG_1650.jpg" alt="Hazel Optics - Riyadh">
-            <div class="cap">Hazel Optics - Riyadh</div>
-        </a>
-
-        <!-- Sunwear 2 – Doctorm Eyewear -->
-        <a href="sunwear-2/index.html" class="frame tall">
-          <img
-            src="sunwear-2/images/IMG_3883 2.jpg"
-            alt="Doctorm Eyewear – Riyadh"
-          >
-          <div class="cap">Doctorm Eyewear – Riyadh</div>
-        </a>
-
-    </div>
-</section>
 
 
 
@@ -902,8 +850,24 @@
 </section>
 
 <footer>
-  <span>© <span id="year"></span> Rivan Sagga</span>
-  <span><a href="mailto:you@email.com">rivan.saggaa@gmail.com</a> · Instagram @rivansagga · TikTok @rivan.sagga</span>
+  <div>
+    © 2026 Rivan Sagga — All rights reserved.
+    Images may not be reproduced, distributed, or used without permission.
+  </div>
+  <div class="footer-links">
+
+    <a href="mailto:rivansagga@gmail.com">
+      Email
+    </a>
+
+    <a href="https://www.instagram.com/rivansagga/" target="_blank">
+      Instagram
+    </a>
+
+    <a href="https://www.tiktok.com/@rivan.sagga" target="_blank">
+      TikTok
+    </a>
+  </div>
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
