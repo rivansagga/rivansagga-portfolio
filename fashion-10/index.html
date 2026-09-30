@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dress Shoot — Rivan Sagga</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #2f2f2f;
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 45px 60px 70px;
+    }
+
+    .back {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 55px;
+      opacity: 0.75;
+      transition: opacity 0.2s ease;
+    }
+
+    .back:hover {
+      opacity: 1;
+    }
+
+    .kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      font-weight: 400;
+      line-height: 1;
+      margin: 0 0 20px;
+    }
+
+    .description {
+      max-width: 600px;
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.7;
+      margin-bottom: 45px;
+    }
+
+    /* COVER */
+
+    .cover {
+      width: 100%;
+      margin-bottom: 22px;
+    }
+
+    .cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      .page {
+        padding: 30px 20px 50px;
+      }
+
+      .back {
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .cover {
+        margin-bottom: 14px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <a href="../index.html#Fashion" class="back">
+      ← Back to Fashion
+    </a>
+
+    <div class="kicker">
+      Fashion
+    </div>
+
+    <h1>Dress Shoot</h1>
+
+    <p class="description">
+      Fashion editorial featuring a dress-focused shoot.
+    </p>
+
+    <!-- COVER -->
+
+    <div class="cover">
+      <img src="images/IMG_3968.jpg" alt="Dress Shoot">
+    </div>
+
+    <!-- GALLERY -->
+
+    <div class="gallery">
+
+      <img src="images/IMG_3969.jpg" alt="Dress Shoot">
+      <img src="images/IMG_3970.jpg" alt="Dress Shoot">
+      <img src="images/IMG_3971.jpg" alt="Dress Shoot">
+      <img src="images/IMG_3972.jpg" alt="Dress Shoot">
+      <img src="images/IMG_3973.jpg" alt="Dress Shoot">
+
+    </div>
+
+  </main>
+
+</body>
+</html>
